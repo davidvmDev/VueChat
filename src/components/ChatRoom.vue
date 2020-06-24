@@ -7,7 +7,7 @@
       <b-list-group class="panel-body" v-chat-scroll>
         <b-list-group-item v-for="(item, index) in chats" class="chat">
           <div class="left clearfix" v-if="item.nickname === nickname">
-            <b-img left src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="75" height="75" alt="img" class="m-1" />
+            <b-img left :src="user" rounded="circle" width="75" height="75" alt="img" class="m-1" />
             <div class="chat-body clearfix">
               <div class="header">
                 <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-right text-muted">
@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="right clearfix" v-else>
-            <b-img right src="http://placehold.it/50/55C1E7/fff&text=U" rounded="circle" width="75" height="75" alt="img" class="m-1" />
+            <b-img right :src="user" rounded="circle" width="75" height="75" alt="img" class="m-1" />
             <div class="chat-body clearfix">
               <div class="header">
                 <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-right text-muted">
@@ -61,7 +61,8 @@ export default {
       errors: [],
       nickname: this.$route.params.nickname,
       chat: {},
-      socket: io('http://localhost:4000')
+      socket: io('http://localhost:4000'),
+      user: require('@/assets/user.png')
     }
   },
   created () {
