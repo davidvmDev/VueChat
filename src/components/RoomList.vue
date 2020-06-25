@@ -3,12 +3,12 @@
     <b-col cols="12">
       <h2>
         Room List
-        <b-link href="#/add-room">(Add Room)</b-link>
+        <b-link href="#/add-room">(Agregar Room)</b-link>
       </h2>
       <b-table striped hover :items="rooms" :fields="fields">
         <template slot="actions" slot-scope="row">
-          <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
-          <b-btn size="sm" @click.stop="drop(row.item._id)">Delete</b-btn>
+          <b-btn size="sm" @click.stop="join(row.item._id)">Unirse</b-btn>
+          <b-btn size="sm" @click.stop="drop(row.item._id)">Borrar</b-btn>
         </template>
       </b-table>
       <ul v-if="errors && errors.length">
@@ -29,9 +29,9 @@ export default {
   data () {
     return {
       fields: {
-        room_name: { label: 'Room Name', sortable: true, 'class': 'text-center' },
-        created_date: { label: 'Created Date', sortable: true },
-        actions: { label: 'Action', 'class': 'text-center' }
+        room_name: { label: 'Nombre', sortable: true, 'class': 'text-center' },
+        created_date: { label: 'Fecha de creación', sortable: true },
+        actions: { label: 'Acciones', 'class': 'text-center' }
       },
       rooms: [],
       errors: []

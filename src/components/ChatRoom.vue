@@ -2,7 +2,7 @@
   <b-row>
     <b-col cols="12">
       <h2>
-        Chat Room - <b-btn size="sm" @click.stop="logout()">Logout</b-btn>
+        Chat Room - <b-btn size="sm" @click.stop="logout()">Salir</b-btn>
       </h2>
       <b-list-group class="panel-body" v-chat-scroll>
         <b-list-group-item v-for="(item, index) in chats" class="chat">
@@ -34,10 +34,10 @@
         </li>
       </ul>
       <b-form @submit="onSubmit" class="chat-form">
-        <b-input-group prepend="Message">
+        <b-input-group prepend="Mensaje">
           <b-form-input id="message" :state="state" v-model.trim="chat.message"></b-form-input>
           <b-input-group-append>
-            <b-btn type="submit" variant="info">Send</b-btn>
+            <b-btn type="submit" variant="info">Enviar</b-btn>
           </b-input-group-append>
         </b-input-group>
       </b-form>
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     logout () {
-      this.socket.emit('save-message', { room: this.chat.room, nickname: this.chat.nickname, message: this.chat.nickname + ' left this room', created_date: new Date() });
+      this.socket.emit('save-message', { room: this.chat.room, nickname: this.chat.nickname, message: this.chat.nickname + ' dejo la sala', created_date: new Date() });
       this.$router.push({
         name: 'RoomList'
       })

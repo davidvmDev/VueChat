@@ -3,18 +3,18 @@
     <b-col align-self="start">&nbsp;</b-col>
     <b-col cols="6" align-self="center">
       <h2>
-        Add Room
-        <b-link href="#/">(Room List)</b-link>
+        Agregar Room
+        <b-link href="#/">(Lista de Rooms)</b-link>
       </h2>
       <b-form @submit="onSubmit">
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Room Name">
+                  label="Ingresa un nombre para el Room">
           <b-form-input id="room_name" :state="state" v-model.trim="room.room_name"></b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="primary">Add</b-button>
+        <b-button type="submit" variant="primary">Agregar</b-button>
       </b-form>
     </b-col>
     <b-col align-self="end">&nbsp;</b-col>
