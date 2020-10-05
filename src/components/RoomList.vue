@@ -39,12 +39,12 @@ export default {
   },
   created () {
     axios.get(`http://localhost:3000/api/room`)
-    .then(response => {
-      this.rooms = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+      .then(response => {
+        this.rooms = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   },
   methods: {
     join (id) {
@@ -54,14 +54,14 @@ export default {
         params: { id: id }
       })
     },
-    drop (id){
-      axios.delete(`http://localhost:3000/api/room/`+id)
-      .then(response => {
-      console.log(response)
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+    drop (id) {
+      axios.delete(`http://localhost:3000/api/room/` + id)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   }
 }

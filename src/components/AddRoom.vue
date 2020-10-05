@@ -36,14 +36,14 @@ export default {
     onSubmit (evt) {
       evt.preventDefault()
       axios.post(`http://localhost:3000/api/room`, this.room)
-      .then(response => {
-        this.$router.push({
-          name: 'RoomList'
+        .then(response => {
+          this.$router.push({
+            name: 'RoomList'
+          })
         })
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   }
 }

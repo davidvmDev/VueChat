@@ -67,12 +67,12 @@ export default {
   },
   created () {
     axios.get(`http://localhost:3000/api/chat/` + this.$route.params.id)
-    .then(response => {
-      this.chats = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+      .then(response => {
+        this.chats = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
 
     this.socket.on('new-message', function (data) {
       if(data.message.room === this.$route.params.id) {
@@ -92,13 +92,13 @@ export default {
       this.chat.room = this.$route.params.id
       this.chat.nickname = this.$route.params.nickname
       axios.post(`http://localhost:3000/api/chat`, this.chat)
-      .then(response => {
-        this.socket.emit('save-message', response.data)
-        this.chat.message = ''
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+        .then(response => {
+          this.socket.emit('save-message', response.data)
+          this.chat.message = ''
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   }
 }
